@@ -86,14 +86,33 @@ rainbowButton.addEventListener("click", () =>{
     }
 })
 
-
-
-
 //remove grid
 const removeButton = document.querySelector("#clear");
 
 removeButton.addEventListener("click", () =>{
     removeGrids();
+})
+
+const showGridButton = document.querySelector("#grid");
+let toGridItems = document.getElementsByClassName("col");
+let isGridToggle = false;
+showGridButton.addEventListener("click",()=>{
+    if(isGridToggle === false){
+        isGridToggle = true;
+        showGridButton.style.backgroundColor="yellow";
+        for(let e of toGridItems){
+            e.setAttribute("style","border: 1px solid black");
+        }
+    }else {
+        isGridToggle = false;
+        showGridButton.style.backgroundColor="rgb(166, 241, 247)";
+        for(let e of toGridItems){
+            e.setAttribute("style","border: none");
+        }
+    }
+    
+    
+        
 })
 
 
