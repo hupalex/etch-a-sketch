@@ -1,6 +1,6 @@
 let itemsToRemove = document.getElementsByClassName("row");
 
-//loop 256 times, create divs, adding them grid-item class and add them into the grid-container
+//loop X times, create divs, adding them grid-item class and add them into the grid-container
 function initGrid(numCells){
     const startBtn = document.querySelector("#start");
     startBtn.addEventListener("click", () => {
@@ -43,7 +43,7 @@ function initGrid(numCells){
     })
 }
 initGrid();
-
+//function for removing grids
 function removeGrids(){ 
     let item;
     while(item = itemsToRemove[0]){
@@ -52,14 +52,22 @@ function removeGrids(){
     }    
 }
 
+//coloring divs
 const allGridItem = document.querySelectorAll("div");
 
 allGridItem.forEach((grid) => {
     grid.addEventListener("mouseover", e => {
-        e.target.style.backgroundColor = "grey";
+        setTimeout(function(){
+        }, 500)
+        e.target.style.backgroundColor = "black";  
     })
 });
 
+const removeButton = document.querySelector("#clear");
+
+removeButton.addEventListener("click", () =>{
+    removeGrids();
+})
 
     
 
