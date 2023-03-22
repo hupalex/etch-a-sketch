@@ -1,4 +1,4 @@
-let itemsToRemove = document.getElementsByClassName("grid-item");
+let itemsToRemove = document.getElementsByClassName("row");
 
 //loop 256 times, create divs, adding them grid-item class and add them into the grid-container
 function initGrid(numCells){
@@ -9,22 +9,32 @@ function initGrid(numCells){
         if(itemsToRemove.length === 0){
             numCells = prompt("What should the width of the table be?");
  
-            for(i = 0; i <= numCells * numCells; i++){
-                const initGridItem = document.createElement("div");
+            for(i = 0; i < numCells; i++){
+                const initGridItemRow = document.createElement("div");
                 const gridContainer = document.querySelector("#grid-container");
                     
-                initGridItem.classList.add("grid-item");
-                gridContainer.appendChild(initGridItem);
+                initGridItemRow.classList.add("row");
+                gridContainer.appendChild(initGridItemRow);
+                for( let j = 0; j<numCells;j++){
+                    const initGridItemCol = document.createElement("div");
+                    initGridItemCol.classList.add("col");
+                    initGridItemRow.appendChild(initGridItemCol);
+                }
             }
         }else {
             removeGrids();
             numCells = prompt("What should the width of the table be?");
-            for(i = 0; i <= numCells*numCells; i++){
-                const initGridItem = document.createElement("div");
+            for(i = 0; i < numCells; i++){
+                const initGridItemRow = document.createElement("div");
                 const gridContainer = document.querySelector("#grid-container");
                     
-                initGridItem.classList.add("grid-item");
-                gridContainer.appendChild(initGridItem);
+                initGridItemRow.classList.add("row");
+                gridContainer.appendChild(initGridItemRow);
+                for( let j = 0; j<numCells;j++){
+                    const initGridItemCol = document.createElement("div");
+                    initGridItemCol.classList.add("col");
+                    initGridItemRow.appendChild(initGridItemCol);
+                }
             }
         }       
     })
