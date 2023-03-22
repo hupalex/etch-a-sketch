@@ -4,41 +4,43 @@ let itemsToRemove = document.getElementsByClassName("row");
 function initGrid(numCells){
     const startBtn = document.querySelector("#start");
     startBtn.addEventListener("click", () => {
-        console.log(itemsToRemove);
-
         if(itemsToRemove.length === 0){
             numCells = prompt("What should the width of the table be?");
- 
-            for(i = 0; i < numCells; i++){
-                const initGridItemRow = document.createElement("div");
-                const gridContainer = document.querySelector("#grid-container");
-                    
-                initGridItemRow.classList.add("row");
-                gridContainer.appendChild(initGridItemRow);
-                for( let j = 0; j<numCells;j++){
-                    const initGridItemCol = document.createElement("div");
-                    initGridItemCol.classList.add("col");
-                    initGridItemRow.appendChild(initGridItemCol);
+            if (0 <= numCells <= 100){
+                for(i = 0; i < numCells; i++){
+                    const initGridItemRow = document.createElement("div");
+                    const gridContainer = document.querySelector("#grid-container");
+                        
+                    initGridItemRow.classList.add("row");
+                    gridContainer.appendChild(initGridItemRow);
+                    for( let j = 0; j<numCells;j++){
+                        const initGridItemCol = document.createElement("div");
+                        initGridItemCol.classList.add("col");
+                        initGridItemRow.appendChild(initGridItemCol);
+                    }
                 }
-            }
+            }else alert("Enter a value between 0 and 100 please!") 
         }else {
             removeGrids();
             numCells = prompt("What should the width of the table be?");
-            for(i = 0; i < numCells; i++){
-                const initGridItemRow = document.createElement("div");
-                const gridContainer = document.querySelector("#grid-container");
-                    
-                initGridItemRow.classList.add("row");
-                gridContainer.appendChild(initGridItemRow);
-                for( let j = 0; j<numCells;j++){
-                    const initGridItemCol = document.createElement("div");
-                    initGridItemCol.classList.add("col");
-                    initGridItemRow.appendChild(initGridItemCol);
+            if(0 <= numCells <= 100){
+                for(i = 0; i < numCells; i++){
+                    const initGridItemRow = document.createElement("div");
+                    const gridContainer = document.querySelector("#grid-container");
+                            
+                    initGridItemRow.classList.add("row");
+                    gridContainer.appendChild(initGridItemRow);
+                    for( let j = 0; j<numCells;j++){
+                        const initGridItemCol = document.createElement("div");
+                        initGridItemCol.classList.add("col");
+                        initGridItemRow.appendChild(initGridItemCol);
+                    }
                 }
-            }
-        }       
+            }else{
+                alert("Enter a value between 0 and 100 please!")
+            }     
+        }        
     })
-    
 }
 initGrid();
 
