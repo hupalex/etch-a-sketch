@@ -53,21 +53,49 @@ function removeGrids(){
 }
 
 //coloring divs
+
+let toggleRainbow = false;
 const allGridItem = document.querySelectorAll("div");
 
 allGridItem.forEach((grid) => {
     grid.addEventListener("mouseover", e => {
-        setTimeout(function(){
-        }, 500)
-        e.target.style.backgroundColor = "black";  
+        r = Math.floor(Math.random() * 255);
+        g = Math.floor(Math.random() * 255);
+        b = Math.floor(Math.random() * 255);
+
+        if(toggleRainbow === false){
+            e.target.style.backgroundColor = "black";  
+            
+        } else{
+            e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
+            
+        }   
     })
 });
+//button to toggle random colors
+const rainbowButton = document.querySelector("#rainbow");
+rainbowButton.addEventListener("click", () =>{
+    rainbowButton.style.backgroundColor="yellow";
+    console.log(toggleRainbow); 
+    if (toggleRainbow === false){
+        toggleRainbow = true;
+        rainbowButton.style.backgroundColor="yellow";
+    }else{
+        toggleRainbow = false;
+        rainbowButton.style.backgroundColor="rgb(166, 241, 247)";    
+    }
+})
 
+
+
+
+//remove grid
 const removeButton = document.querySelector("#clear");
 
 removeButton.addEventListener("click", () =>{
     removeGrids();
 })
+
 
     
 
